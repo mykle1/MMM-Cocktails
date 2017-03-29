@@ -1,112 +1,122 @@
-/* Magic Mirror
- * Module: MMM-Cocktails
- *
- * By Mykle1
- * 
- */
+  /* Magic Mirror
+    * Module: MMM-Cocktails
+    *
+    * By Mykle1
+    * 
+    */
+   
 Module.register("MMM-Cocktails", {
 
-    // Module config defaults.
-    defaults: {
-    	fadeSpeed: 0,
-    	updateInterval: 60 * 60 * 1000,
-        animationSpeed: 0,
-        initialLoadDelay: 1250,  
-        retryDelay: 2500, 
-        useHeader: false, 
-        header: "********Please set header txt in config.js***** see instructions",
-        MaxWidth: "50%",
-        MaxHeight: "50%",
-        rotateInterval: 5 * 1000,
-        
-    },
+       // Module config defaults.
+       defaults: {
+           updateInterval: 120000, // every 10 minutes
+           animationSpeed: 1000,
+           initialLoadDelay: 1130, // 0 seconds delay
+           retryDelay: 2500,
+           header: "",
+           maxWidth: "400px",
+       },
 
-    // Define required scripts.  The standard :)ok
-    getScripts: function() {
-        return ["moment.js"];
-    },
+       // Define required scripts.
+       getScripts: function() {
+           return ["moment.js"];
+       },
+       
+       getStyles: function() {
+           return ["MMM-Cocktails.css", "font-awesome.css"];
+       },
 
-    start: function() {
-        Log.info("Starting module: " + this.name);
-        
-        // Set locale.
-        this.today = "";
-        this.cocktails = {};
-        this.activeItem = 0;
-        this.rotateInterval = null;
-        this.scheduleUpdate();
-    },
+       // Define start sequence.
+       start: function() {
+           Log.info("Starting module: " + this.name);
 
-    getDom: function() {
-    	
-        var wrapper = document.createElement("div");
-        wrapper.className = "wrapper";
+           // Set locale.
+           moment.locale(config.language);
 
-        
-        if (this.config.useHeader === true) {
-            var header = document.createElement("header");
-            header.className = "xsmall bright";
-            header.innerHTML = this.config.header;
-            wrapper.appendChild(header);
-        }
-        
-        var hkeys = Object.keys(this.cocktails);
-			if(hkeys.length > 0){
-           	if(this.activeItem >= hkeys.length){
-				this.activeItem = 0;
-			}
-         var cocktails = this.cocktails[hkeys[this.activeItem]];
-        
-			var cocktailsImg = cocktails.image;
-	console.log(cocktailsImg+".jpg");
+           this.today = "";
+           this.Cocktails = [];
+           this.url = "http://www.thecocktaildb.com/api/json/v1/1/random.php";        
+           this.scheduleUpdate();
+       },
 
-        var cocktailsPhoto = document.createElement("div");
-        var daily = moment().subtract(0, "days").format('YYYY/MM/DD');
-        cocktailsPhoto.innerHTML = '<img src="http://www.thecocktaildb.com/images/media/drink/'+cocktailsImg+'.jpg"  width="'+this.config.maxWidth+'" height="'+this.config.maxHeight+'">';
-        }
-        wrapper.appendChild(cocktailsPhoto);
-        
-        
-        return wrapper;
-    },
+      getDom: function() {
 
-    processCocktails: function(data) {
-        this.today = data.Today;
-        this.cocktails = data;
-        this.loaded = true;
-    },
-    
-     scheduleCarousel: function() {
-         console.log("Showing Cocktails");
-         this.rotateInterval = setInterval(() => {
-             this.activeItem++;
-             this.updateDom(this.config.animationSpeed);
-         }, this.config.rotateInterval);
+         var cocktails = this.cocktails;
+
+         var wrapper = document.createElement("div");
+         wrapper.className = "wrapper";
+         wrapper.style.maxWidth = this.config.maxWidth;
+         
+
+         if (!this.loaded) {
+             wrapper.innerHTML = "Mixing ingrediants...";
+             wrapper.className = "bright light small";
+             return wrapper;
+         }
+         if (this.config.header != "" ){
+         var header = document.createElement("header");
+         header.className = "header";
+         header.innerHTML = this.config.header;
+         wrapper.appendChild(header);
+		 }
+		 
+         var top = document.createElement("div");
+         top.classList.add("content");
+
+         var newsLogo = document.createElement("div");
+         var newsIcon = document.createElement("img");
+         newsIcon.src = cocktails.strDrinkThumb;
+         newsIcon.classList.add("imgDes");
+         newsLogo.appendChild(newsIcon);
+         top.appendChild(newsLogo);
+
+         var title = document.createElement("h3");
+         title.classList.add("small");
+         //title.className = "medium bright";
+         title.innerHTML = cocktails.strDrink + "  ~  Dish: " + cocktails.strGlass;
+         top.appendChild(title);
+
+
+         var des = document.createElement("p");
+         //des..classList.add("dimmed", "light", "small");
+         des.classList.add("xsmall", "bright");
+         //var str = cocktails.strInstructions;
+         //if(str.length > 10) str = str.substring(0,190);
+         des.innerHTML = cocktails.strInstructions;
+         //des.innerHTML = str + "...";
+         top.appendChild(des);
+
+         wrapper.appendChild(top);
+         return wrapper;
+
      },
 
-    scheduleUpdate: function() {
-        setInterval(() => {
-            this.getCocktails();
-        }, this.config.updateInterval);
-        this.getCocktails(this.config.initialLoadDelay);
-        var self = this;
-    },
+     processCocktails: function(data) {
+         //	console.log(data);
+         this.today = data.Today;
+         this.cocktails = data;
+         this.loaded = true;
+     },
+
+     scheduleUpdate: function() {
+         setInterval(() => {
+             this.getCocktails();
+         }, this.config.updateInterval);
+
+         this.getCocktails(this.config.initialLoadDelay);
+     },
 
 
-    getCocktails: function() {
-        this.sendSocketNotification('GET_Cocktails');
+     getCocktails: function() {
+         this.sendSocketNotification('GET_COCKTAILS', this.url);
+     },
 
-    },
+     socketNotificationReceived: function(notification, payload) {
+         if (notification === "COCKTAILS_RESULT") {
+             this.processCocktails(payload);
+             this.updateDom(this.config.fadeSpeed);
+         }
+         this.updateDom(this.config.initialLoadDelay);
+     },
 
-    socketNotificationReceived: function(notification, payload) {
-        if (notification === "Cocktails_RESULTS") {
-            this.processCocktails(payload);
-            if(this.rotateInterval == null){
-                 this.scheduleCarousel();
-             }
-            this.updateDom(this.config.fadeSpeed);
-        }
-        this.updateDom(this.config.initialLoadDelay);
-    },
-
-});
+ });

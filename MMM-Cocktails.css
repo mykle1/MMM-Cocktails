@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+
+.MMM-Cocktails .header {
+	text-align: center;
+	font-family: 'Oswald', sans-serif;
+	font-size: 20px;
+}
+.MMM-Cocktails .content {
+  width: 100%;
+  background-position: 11px 0;
+  background-repeat: no-repeat;
+  color: #a9a356;
+}
+.MMM-Cocktails .header {
+	color: #bc7b23;
+}
+.MMM-Cocktails .imgDes {
+  width: 15%;
+  height: 15%;
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  float: left;
+}
+.MMM-Cocktails .imgDes p {
+  font-size: 12px;
+  text-align: left;
+  padding-bottom: 15px;
+}
+h3:first-letter {
+    text-transform:capitalize;
+}
