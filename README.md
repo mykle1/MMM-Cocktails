@@ -3,7 +3,7 @@ A MagicMirror module that teaches you how to make mixed drinks
 
 ## Example 
 
-![](pic.jpg)
+![](pic.JPG)
 ##
 Every day you get a new drink with instructions on how to make it, including the ingredients, the glass it should be served in, and a picture of what it should look like
 
