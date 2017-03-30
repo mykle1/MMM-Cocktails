@@ -1,4 +1,4 @@
-  /* Magic Mirror
+   /* Magic Mirror
     * Module: MMM-Cocktails
     *
     * By Mykle1
@@ -9,12 +9,12 @@ Module.register("MMM-Cocktails", {
 
        // Module config defaults.
        defaults: {
-           updateInterval: 120000, // every 10 minutes
+           updateInterval: 60*60*1000, // every hour
            animationSpeed: 1000,
-           initialLoadDelay: 1130, // 0 seconds delay
+           initialLoadDelay: 1250, // ms seconds delay
            retryDelay: 2500,
-           header: "",
-           maxWidth: "400px",
+           header: "I drink to make other people interesting",
+           maxWidth: "350px",
        },
 
        // Define required scripts.
@@ -49,7 +49,7 @@ Module.register("MMM-Cocktails", {
          
 
          if (!this.loaded) {
-             wrapper.innerHTML = "Mixing ingrediants...";
+             wrapper.innerHTML = "Mixing your drink...";
              wrapper.className = "bright light small";
              return wrapper;
          }
@@ -73,7 +73,7 @@ Module.register("MMM-Cocktails", {
          var title = document.createElement("h3");
          title.classList.add("small");
          //title.className = "medium bright";
-         title.innerHTML = cocktails.strDrink + "  ~  Dish: " + cocktails.strGlass;
+         title.innerHTML = cocktails.strDrink + "  ~  Best served in " + cocktails.strGlass;
          top.appendChild(title);
 
 

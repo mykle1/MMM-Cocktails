@@ -1,7 +1,7 @@
 /* Magic Mirror
     * Module: MMM-Cocktails
     *
-    * By Mykle1/ Original code by cowboysdude - node_helper written by: strawberry 3.141
+    * By Mykle1 - Original code by cowboysdude - node_helper written by: strawberry 3.141
     * 
     */
 const NodeHelper = require('node_helper');
