@@ -1,9 +1,9 @@
 # MMM-Cocktails
 A MagicMirror module that teaches you how to make mixed drinks
 
-## How we look - from 1,000,000 miles away!
+## Example 
 
-![](pix/7.gif)
+![](pic.jpg)
 ##
 Every day you get a new drink with instructions on how to make it, including the ingredients, the glass it should be served in, and a picture of what it should look like
 
