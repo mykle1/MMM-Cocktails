@@ -1,36 +1,25 @@
 # MMM-Cocktails
-A MagicMirror module that teaches you how to make mixed drinks
+A MagicMirror module that teaches you how to make mixed drinks.
 
 ## Example 
 
 ![](pic.JPG)
 ##
-Every day you get a new drink with instructions on how to make it, including the ingredients, the glass it should be served in, and a picture of what it should look like
-
-## Dependencies
-
-* An installation of [MagicMirror<sup>2</sup>](https://github.com/MichMich/MagicMirror)
-* npm
-* [request](https://www.npmjs.com/package/request)
-
+Every day you get a new drink with instructions on how to make it, including the ingredients, the glass it should be served in, and a picture of what it should look like. Think of it as "The Drink of the Day!"
 
 ## Info
 
-* No API key is necessary but these limits apply.
-* 30 requests per IP address per hour
-* 50 requests per IP address per day.
+* No API key is necessary.
 
 ## Installation
 
 * Clone this repo into `~/MagicMirror/modules` directory.
-* `cd MMM-Cocktails`
-* `npm install` in ~/MagicMirror/modules/MMM-Cocktails directory.
 
 ## Add to Config.js
 
     {
         module: "MMM-Cocktails",
-        position: "bottom_center",
+        position: "bottom_center", // Small footprint - Fits anywhere.
         config: {
             rotateInterval: 5000,
             MaxWidth: "50%",
