@@ -21,9 +21,8 @@ Every day you get a new drink with instructions on how to make it, including the
         module: "MMM-Cocktails",
         position: "bottom_center", // Small footprint - Fits anywhere.
         config: {
-            rotateInterval: 5000,
-            MaxWidth: "50%",
-            MaxHeight: "50%",
+            maxWidth: "350px",
+            header: "I drink to make you look better!"
         }
     },
 
@@ -31,13 +30,9 @@ Every day you get a new drink with instructions on how to make it, including the
 
 | **Option** | **Default** | **Description** |
 | --- | --- | --- |
-| `updateInterval` | `1800000` | Every 30 minutes = 48. DO NOT exceed 50 per day. |
-| `animationSpeed` | `0` | The speed at which each image loads in ms. |
-| `fadeSpeed` | `0` | The speed at which each image fades in ms. |
-| `rotateInterval` | `3000` | The speed at which the images rotate in ms. |
-| `initialLoadDelay` | `2500` | Module load delay in ms |
+| `maxWidth` | `350px` | Constrain it or stretch it across the top_bar or bottom_bar. |
+| `header` | `text` | Anything that you want it to say. |
+| `animationSpeed` | `3000` | The speed at which the new cocktail fades in ms. |
+| `updateInterval` | `60*60*1000` | 1 hour. New cocktail at midnight. |
+| `initialLoadDelay` | `1250` | Module load delay in ms |
 | `retryDelay` | `2500`  |Delay to retry fetching data. |
-| `useHeader` | false | Must be set to true if you want a header |
-| `header` | `"Your Header"` | Add header between the `""` if desired. |
-| `MaxWidth` | `"50%"`|  Choose width of image between the `""` (Ex: `200px` or '12%'). |
-| `MaxHeight` | `"50%"` | Choose height of image between the `""` (Ex: `200px` or '12%').. |
