@@ -1,8 +1,5 @@
-@import url(‘https://fonts.googleapis.com/css?family=Oswald’);
-
 .MMM-Cocktails .header {
 text-align: center;
-font-family: ‘Oswald’, sans-serif;
 font-size: 15px;
 color: white;
 }
@@ -13,8 +10,8 @@ background-repeat: no-repeat;
 color: #a9a356;
 }
 .MMM-Cocktails .imgDes {
-width: 15%;
-height: 15%;
+width: 25%;
+height: 25%;
 margin-left: 10px;
 margin-right: 10px;
 overflow: hidden;
@@ -26,5 +23,5 @@ text-align: left;
 padding-bottom: 15px;
 }
 h3:first-letter {
-text-transform:capitalize;
+text-transform: capitalize;
 }

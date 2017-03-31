@@ -14,7 +14,7 @@ Module.register("MMM-Cocktails", {
            initialLoadDelay: 1250, // ms seconds delay
            retryDelay: 2500,
            header: "I drink to make other people interesting",
-           maxWidth: "350px",
+           maxWidth: "400px",
        },
 
        // Define required scripts.
@@ -73,7 +73,7 @@ Module.register("MMM-Cocktails", {
          var title = document.createElement("h3");
          title.classList.add("small");
          //title.className = "medium bright";
-         title.innerHTML = cocktails.strDrink + "  ~  Best served in " + cocktails.strGlass;
+         title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass;
          top.appendChild(title);
 
 
@@ -82,7 +82,7 @@ Module.register("MMM-Cocktails", {
          des.classList.add("xsmall", "bright");
          //var str = cocktails.strInstructions;
          //if(str.length > 10) str = str.substring(0,190);
-         des.innerHTML = cocktails.strInstructions;
+         des.innerHTML = cocktails.strIngredient1 + " " + cocktails.strMeasure1 + " - " + cocktails.strIngredient2 + " " + cocktails.strMeasure2 + " - " + cocktails.strIngredient3 + " " + cocktails.strMeasure3 + " - " + cocktails.strIngredient4 + " " + cocktails.strMeasure4 + "  " + cocktails.strIngredient5 + "  " + cocktails.strMeasure5 + "  " + cocktails.strInstructions;
          //des.innerHTML = str + "...";
          top.appendChild(des);
 
