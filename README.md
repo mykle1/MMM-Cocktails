@@ -9,13 +9,13 @@ Every day you get a new drink with instructions on how to make it, including the
 
 ## Info
 
-* For best results in left or right regions of your MagicMirror you can constrain the the size using maxWidth
-* For best results in top_bar or bottom_bar increase maxWidth to stretch across your mirror and remove header
+* For best results in left or right regions of your MagicMirror you can constrain the size using maxWidth
+* For best results in top_bar/bottom_bar/thirds increase maxWidth to stretch across your mirror and remove header
 * No API key is necessary at the moment
 
 ## Installation
 
-* `git clone https://github.com/mykle1/MMM-Cocktails.git` into `~/MagicMirror/modules` directory.
+* `git clone https://github.com/mykle1/MMM-Cocktails.git` into the `~/MagicMirror/modules` directory.
 
 ## Add to Config.js
 
