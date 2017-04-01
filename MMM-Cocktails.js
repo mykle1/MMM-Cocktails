@@ -73,7 +73,7 @@ Module.register("MMM-Cocktails", {
          var title = document.createElement("h3");
          title.classList.add("small");
 	 if (cocktails.strGlass === 'vote' || " "){
-	 title.innerHTML = cocktails.strDrink+ " ~ No Glass listed";	
+	 title.innerHTML = cocktails.strDrink+ " ~ Use your favorite glass";	
 	 } else {	
          title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass;
 	 }
