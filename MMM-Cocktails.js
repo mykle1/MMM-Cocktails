@@ -73,6 +73,9 @@ Module.register("MMM-Cocktails", {
          var title = document.createElement("h3");
          title.classList.add("small");
          //title.className = "medium bright";
+	 if (cocktails.strGlass === 'vote' || " "){
+	 title.innerHTML = cocktails.strDrink+ " ~ No Glass listed";	
+	 } else {	
          title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass;
          top.appendChild(title);
 
