@@ -29,7 +29,7 @@ Every day you get a new drink with instructions on how to make it, including the
 
     {
         module: "MMM-Cocktails",
-        position: "bottom_center", // Small footprint - Fits anywhere.
+        position: "bottom_center", // Editable footprint - Fits anywhere.
         config: {
             maxWidth: "400px",
             header: ""
