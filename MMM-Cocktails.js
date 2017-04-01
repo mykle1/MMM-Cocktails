@@ -76,6 +76,7 @@ Module.register("MMM-Cocktails", {
 	 title.innerHTML = cocktails.strDrink+ " ~ No Glass listed";	
 	 } else {	
          title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass;
+	 }
          top.appendChild(title);
 
 
