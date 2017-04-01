@@ -33,8 +33,8 @@ Every day you get a new drink with instructions on how to make it, including the
 
 | **Option** | **Default** | **Description** |
 | --- | --- | --- |
-| `maxWidth` | `400px` | Constrain it or stretch it across the top_bar or bottom_bar. |
-| `header` | `text` | Anything that you want it to say. |
+| `maxWidth` | `400px` | Constrain, or stretch across top_bar,bottom_bar, thirds. |
+| `header` | `text` | I'm not a fan of headers but the option is yours. |
 | `animationSpeed` | `3000` | The speed at which the new cocktail fades in ms. |
 | `updateInterval` | `60*60*1000` | 1 hour. New cocktail at midnight. |
 | `initialLoadDelay` | `1250` | Module load delay in ms |
