@@ -1,15 +1,17 @@
 # MMM-Cocktails
 A MagicMirror module that teaches you how to make all kinds of mixed drinks.
 
-## Example 
+## Examples
 
 ![](pic.JPG)
+![](stretch.JPG)
+
 ##
 Every day you get a new drink with instructions on how to make it, including the ingredients, the glass it should be served in, and a picture of what it should look like. Think of it as "The Drink of the Day!"
 
 ## Info
 
-* The .css file included helps you modify size of image, text, color. . . to have it exactly how you want it.
+* Completely configurable. The .css file included helps you modify size of image, text, color, any way you like it.
 * For best results in left or right regions constrain the size using maxWidth and the .css examples provided.
 * For best results in top_bar/bottom_bar/thirds increase maxWidth to stretch across your mirror and modify css.
 * No API key is necessary at the moment
