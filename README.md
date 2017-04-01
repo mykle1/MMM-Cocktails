@@ -3,7 +3,12 @@ A MagicMirror module that teaches you how to make all kinds of mixed drinks.
 
 ## Examples
 
+maxWidth: 400px, colored title text. Good for left and right regions.
+
 ![](pic.JPG)
+
+maxWidth: 1050px, colored title text. Increased text sizes. top/bottom_bar, upper/lower_third, middle_center.
+
 ![](stretch.JPG)
 
 ##
