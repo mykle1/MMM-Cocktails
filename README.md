@@ -11,7 +11,7 @@ maxWidth: 1050px, colored title text. Increased text sizes. top/bottom_bar, uppe
 
 ![](stretch.JPG)
 
-No picture, colored title and body text. Placed under the compliements module as an example. Make it yours!
+No picture, colored title and body text. Placed under the compliments module as an example. Make it yours!
 
 ![](nopic.jpg)
 
