@@ -13,7 +13,7 @@ maxWidth: 1050px, colored title text. Increased text sizes. top/bottom_bar, uppe
 
 No picture, colored title and body text. Placed under the compliements module as an example. Make it yours!
 
-![](nopic.JPG)
+![](nopic.jpg)
 
 ##
 Every day you get a new drink with instructions on how to make it, including the ingredients, the glass it should be served in, and a picture of what it should look like. Think of it as "The Drink of the Day!"
