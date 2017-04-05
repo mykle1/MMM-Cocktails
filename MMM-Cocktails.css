@@ -1,35 +1,51 @@
+/* Copy and paste any or all of these css entries into your custom.css file inside your
+ * css folder. The functions are annotated to make things as easy as possible for you.
+ * Use any colors you want! For example - "http://htmlcolorcodes.com/color-picker/"
+ * Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
+ */
+
 .MMM-Cocktails .header {
-text-align: center;
-font-size: 15px;
-color: white;
+  text-align: center;       /* Aligns header text left, center or right) */
+  font-size: 15px;          /* Sets header text size */
+  color: white;             /* Sets header text color */
 }
-.MMM-Cocktails .content {
-width: 100%;
-background-position: 11px 0;
-background-repeat: no-repeat;
-color: #a9a356;
-}
-.MMM-Cocktails .imgDes {
-width: 10%;   /* width of image */
-height: 10%;  /* height of image */
-margin-left: 10px;
-margin-right: 10px;
-overflow: hidden;
-float: left;
-}
-.MMM-Cocktails .imgDes p {
-font-size: 12px;
-text-align: left;
-padding-bottom: 15px;
-}
-h3:first-letter {
-text-transform: capitalize;
-}
+
 .MMM-Cocktails h3.small {
-  color: #99F;          /* color for Title text */
-  font-size: 25px;      /* size for Title text */
+  color: #99F;              /* color for Title text */
+  font-size: 25px;          /* size for Title text */
 }
+
 .MMM-Cocktails p.xsmall.bright {
-  color: white;          /* color for main body text */
-  font-size: 12px;      /* size for main body text */
+  color: #99F;              /* color for main body text */
+  font-size: 18px;          /* size for main body text */
+}
+
+.MMM-Cocktails .imgDes {
+  width: 10%;               /* width of picture */
+  height: 10%;              /* height of picture */
+  margin-left: 10px;
+  margin-right: 10px;
+  overflow: hidden;
+  float: left;              /* position of picture */
+}
+
+.MMM-Cocktails .imgDes {
+  display: none;            /* hides the picture if you don't want it */
+}
+
+.MMM-Cocktails .content {
+  width: 100%;
+  background-position: 11px 0;
+  background-repeat: no-repeat;
+  color: #a9a356;
+}
+
+.MMM-Cocktails .imgDes p {
+  font-size: 12px;
+  text-align: left;
+  padding-bottom: 15px;
+}
+
+h3:first-letter {
+  text-transform: capitalize;
 }
