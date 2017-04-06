@@ -29,9 +29,15 @@
   float: left;              /* position of picture */
 }
 
+/* To hide picture copy and paste code BELOW into custom.css file */
 .MMM-Cocktails .imgDes {
   display: none;            /* hides the picture if you don't want it */
 }
+/* To hide picture copy and paste code ABOVE into custom.css file */
+
+
+
+/* ##### CODE BELOW IS FOR AUTHORIZED PERSONNEL ONLY ##### */
 
 .MMM-Cocktails .content {
   width: 100%;
