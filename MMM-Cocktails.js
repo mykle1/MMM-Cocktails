@@ -13,7 +13,7 @@ Module.register("MMM-Cocktails", {
            animationSpeed: 1000,
            initialLoadDelay: 1250, // ms seconds delay
            retryDelay: 2500,
-           header: "I drink to make other people interesting",
+           header: "I drink so other people seem interesting",
            maxWidth: "400px",
        },
 
