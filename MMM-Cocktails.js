@@ -4,16 +4,15 @@
     * By Mykle1
     * 
     */
-   
-Module.register("MMM-Cocktails", {
+   Module.register("MMM-Cocktails", {
 
        // Module config defaults.
        defaults: {
-           updateInterval: 60*60*1000, // every hour
-           animationSpeed: 1000,
+           updateInterval: 60 * 60 * 1000, // every hour
+           fadeSpeed: 3000,
            initialLoadDelay: 1250, // ms seconds delay
            retryDelay: 2500,
-           header: "I drink so other people seem interesting",
+           header: "I drink to make other people interesting",
            maxWidth: "400px",
        },
 
@@ -21,7 +20,7 @@ Module.register("MMM-Cocktails", {
        getScripts: function() {
            return ["moment.js"];
        },
-       
+
        getStyles: function() {
            return ["MMM-Cocktails.css", "font-awesome.css"];
        },
@@ -35,91 +34,87 @@ Module.register("MMM-Cocktails", {
 
            this.today = "";
            this.Cocktails = [];
-           this.url = "http://www.thecocktaildb.com/api/json/v1/1/random.php";        
+           this.url = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
            this.scheduleUpdate();
        },
 
-      getDom: function() {
+       getDom: function() {
 
-         var cocktails = this.cocktails;
+           var cocktails = this.cocktails;
 
-         var wrapper = document.createElement("div");
-         wrapper.className = "wrapper";
-         wrapper.style.maxWidth = this.config.maxWidth;
-         
-
-         if (!this.loaded) {
-             wrapper.innerHTML = "Mixing your drink...";
-             wrapper.className = "bright light small";
-             return wrapper;
-         }
-         if (this.config.header != "" ){
-         var header = document.createElement("header");
-         header.className = "header";
-         header.innerHTML = this.config.header;
-         wrapper.appendChild(header);
-		 }
-		 
-         var top = document.createElement("div");
-         top.classList.add("content");
-
-         var newsLogo = document.createElement("div");
-         var newsIcon = document.createElement("img");
-         newsIcon.src = cocktails.strDrinkThumb;
-         newsIcon.classList.add("imgDes");
-         newsLogo.appendChild(newsIcon);
-         top.appendChild(newsLogo);
-
-         var title = document.createElement("h3");
-         title.classList.add("small");
-	 if (cocktails.strGlass === 'vote' || " "){
-	 title.innerHTML = cocktails.strDrink+ " ~ Use your favorite glass";	
-	 } else {	
-         title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass;
-	 }
-         top.appendChild(title);
+           var wrapper = document.createElement("div");
+           wrapper.className = "wrapper";
+           wrapper.style.maxWidth = this.config.maxWidth;
 
 
-         var des = document.createElement("p");
-         //des..classList.add("dimmed", "light", "small");
-         des.classList.add("xsmall", "bright");
-         //var str = cocktails.strInstructions;
-         //if(str.length > 10) str = str.substring(0,190);
-         des.innerHTML = cocktails.strIngredient1 + " " + cocktails.strMeasure1 + " - " + cocktails.strIngredient2 + " " + cocktails.strMeasure2 + " - " + cocktails.strIngredient3 + " " + cocktails.strMeasure3 + " - " + cocktails.strIngredient4 + " " + cocktails.strMeasure4 + "  " + cocktails.strIngredient5 + "  " + cocktails.strMeasure5 + "  " + cocktails.strInstructions;
-         //des.innerHTML = str + "...";
-         top.appendChild(des);
+           if (!this.loaded) {
+               wrapper.innerHTML = "Mixing your drink...";
+               wrapper.className = "bright light small";
+               return wrapper;
+           }
+           if (this.config.header != "") {
+               var header = document.createElement("header");
+               header.className = "header";
+               header.innerHTML = this.config.header;
+               wrapper.appendChild(header);
+           }
 
-         wrapper.appendChild(top);
-         return wrapper;
+           var top = document.createElement("div");
+           top.classList.add("content");
 
-     },
+           var drinkLogo = document.createElement("div");
+           var drinkIcon = document.createElement("img");
+           drinkIcon.src = cocktails.strDrinkThumb;
+           drinkIcon.classList.add("imgDes");
+           drinkLogo.appendChild(drinkIcon);
+           top.appendChild(drinkLogo);
 
-     processCocktails: function(data) {
-         //	console.log(data);
-         this.today = data.Today;
-         this.cocktails = data;
-         this.loaded = true;
-     },
-
-     scheduleUpdate: function() {
-         setInterval(() => {
-             this.getCocktails();
-         }, this.config.updateInterval);
-
-         this.getCocktails(this.config.initialLoadDelay);
-     },
+           var title = document.createElement("h3");
+           title.classList.add("small");
+           if (cocktails.strGlass === 'vote' || " ") {
+               title.innerHTML = cocktails.strDrink + " ";
+           } else {
+               title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass;
+           }
+           top.appendChild(title);
 
 
-     getCocktails: function() {
-         this.sendSocketNotification('GET_COCKTAILS', this.url);
-     },
+           var des = document.createElement("p");
+           des.classList.add("xsmall", "bright");
+           des.innerHTML = cocktails.strIngredient1 + " " + cocktails.strMeasure1 + " - " + cocktails.strIngredient2 + " " + cocktails.strMeasure2 + " - " + cocktails.strIngredient3 + " " + cocktails.strMeasure3 + " - " + cocktails.strIngredient4 + " " + cocktails.strMeasure4 + "  " + cocktails.strIngredient5 + "  " + cocktails.strMeasure5 + "  " + cocktails.strInstructions;
+           top.appendChild(des);
 
-     socketNotificationReceived: function(notification, payload) {
-         if (notification === "COCKTAILS_RESULT") {
-             this.processCocktails(payload);
-             this.updateDom(this.config.fadeSpeed);
-         }
-         this.updateDom(this.config.initialLoadDelay);
-     },
+           wrapper.appendChild(top);
+           return wrapper;
 
- });
+       },
+
+       processCocktails: function(data) {
+           //	console.log(data);
+           this.today = data.Today;
+           this.cocktails = data;
+           this.loaded = true;
+       },
+
+       scheduleUpdate: function() {
+           setInterval(() => {
+               this.getCocktails();
+           }, this.config.updateInterval);
+
+           this.getCocktails(this.config.initialLoadDelay);
+       },
+
+
+       getCocktails: function() {
+           this.sendSocketNotification('GET_COCKTAILS', this.url);
+       },
+
+       socketNotificationReceived: function(notification, payload) {
+           if (notification === "COCKTAILS_RESULT") {
+               this.processCocktails(payload);
+               this.updateDom(this.config.fadeSpeed);
+           }
+           this.updateDom(this.config.initialLoadDelay);
+       },
+
+   });
