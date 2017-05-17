@@ -28,12 +28,12 @@ A MagicMirror module that displays the holidays for your country.
         position: 'top_left',
         config: {
             maxWidth: "55%",
-			useHeader: true,
+            useHeader: true,
             header: "Upcoming Holidays",
-			updateInterval: 60 * 60 * 1000, // 60 minutes
-			animationSpeed: 6000,
-			countryCode: "jpn",
-			days: "365"  // Days to look forward for holidays (1 to 365)
+            updateInterval: 60 * 60 * 1000, // 60 minutes
+            animationSpeed: 6000,
+            countryCode: "jpn",
+            days: "365"  // Days to look forward for holidays (1 to 365)
         }
     },
 
