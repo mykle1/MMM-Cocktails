@@ -15,9 +15,6 @@ No picture, colored title and body text. Placed under the compliments module as 
 
 ![](nopic.jpg)
 
-##
-Every day you get a new drink with instructions on how to make it, including the ingredients, the glass it should be served in, and a picture of what it should look like. Think of it as "The Drink of the Day!"
-
 ## Info
 
 * Completely configurable. The .css file included helps you modify size of image, text, color, any way you like it.
@@ -34,10 +31,10 @@ Every day you get a new drink with instructions on how to make it, including the
 
     {
         module: "MMM-Cocktails",
-        position: "bottom_center", // Editable footprint - Fits anywhere.
+        position: "top_left", // Editable footprint - Fits anywhere.
         config: {
             maxWidth: "400px",     // See provided .css file for full customization options
-            header: ""
+            header: "",
         }
     },
 
@@ -48,6 +45,6 @@ Every day you get a new drink with instructions on how to make it, including the
 | `maxWidth` | `400px` | Constrain, or stretch across top_bar,bottom_bar, thirds. |
 | `header` | `text` | I'm not a fan of headers but the option is yours. |
 | `animationSpeed` | `3000` | The speed at which the new cocktail fades in ms. |
-| `updateInterval` | `60*60*1000` | 1 hour. New cocktail at midnight. |
+| `updateInterval` | `10*60*1000` | New drink every 10 minutes. |
 | `initialLoadDelay` | `1250` | Module load delay in ms. |
 | `retryDelay` | `2500`  |Delay to retry fetching data. |
