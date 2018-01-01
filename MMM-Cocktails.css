@@ -1,57 +1,30 @@
-/* Copy and paste any or all of these css entries into your custom.css file inside your
- * css folder. The functions are annotated to make things as easy as possible for you.
- * Use any colors you want! For example - "http://htmlcolorcodes.com/color-picker/"
- * Pick your color, copy and paste the HEX number. Example - #62FF00 = bright green.
- */
-
-.MMM-Cocktails .header {
-  text-align: center;       /* Aligns header text left, center or right) */
-  font-size: 15px;          /* Sets header text size */
-  color: white;             /* Sets header text color */
+.MMM-Cocktails .post-container {
+    margin: 5px 5px 0 0;  
+    border: 1px solid #333;
+    overflow: auto;
 }
-
-.MMM-Cocktails h3.small {
-  color: #99F;              /* color for Title text */
-  font-size: 25px;          /* size for Title text */
+.MMM-Cocktails .post-thumb {
+    float: left;
+    width: 30%;               
+    height: 30%;
+    margin-top: 10px;            
+    margin-left: 10px;
+    margin-right: 2px;
 }
-
-.MMM-Cocktails p.xsmall.bright {
-  color: #99F;              /* color for main body text */
-  font-size: 18px;          /* size for main body text */
+.MMM-Cocktails .post-thumb img {
+    display: block;
+    margin-right: 15px
 }
-
-.MMM-Cocktails .imgDes {
-  width: 20%;               /* width of picture */
-  height: 20%;              /* height of picture */
-  margin-left: 10px;
-  margin-right: 10px;
-  overflow: hidden;
-  float: left;              /* position of picture */
+.MMM-Cocktails .post-content {
+    margin-left: 89px;
 }
-
-/* To hide picture copy and paste code BELOW into custom.css file
-.MMM-Cocktails .imgDes {
-  display: none;            /* hides the picture if you don't want it
-}
-/* To hide picture copy and paste code ABOVE into custom.css file */
-
-
-
-/* ##### CODE BELOW IS FOR AUTHORIZED PERSONNEL ONLY ##### */
-
-.MMM-Cocktails .content {
-  width: 100%;
-  background-position: 11px 0;
-  background-repeat: no-repeat;
-  color: #a9a356;
-}
-
-.MMM-Cocktails .imgDes p {
-  font-size: 12px;
-  text-align: left;
-  padding-bottom: 15px;
-}
-
-h3:first-letter {
-  text-transform: capitalize;
+.MMM-Cocktails .post-title {
+    font-weight: bold;
+    font-size: 75%;
+    padding: 9px;
+    background: #f2f2f2
+} 
+.MMM-Cocktails .inst {
+	margin-left: 5px;
+	margin-right: 5px;
 }
