@@ -1,4 +1,4 @@
-   /* Magic Mirror
+      /* Magic Mirror
     * Module: MMM-Cocktails
     *
     * By Mykle1
@@ -12,28 +12,33 @@
            fadeSpeed: 3000,
            initialLoadDelay: 1250, // ms seconds delay
            retryDelay: 2500,
-           header: "",
            maxWidth: "100%",
+           
        },
 	   
 
        getStyles: function() {
            return ["MMM-Cocktails.css"];
        },
+       getScripts: function(){
+	   	   return ["require.js"];
+	   },
 
        // Define start sequence.
        start: function() {
            Log.info("Starting module: " + this.name);
-
+           const config = require(['help.js']);
            this.today = "";
            this.Cocktails = [];
            this.url = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
            this.scheduleUpdate();
+           //this.strIngredient = {};
        },
 
        getDom: function() {
 
-           var cocktails = this.cocktails;
+var cocktails = this.cocktails;
+
 
            var wrapper = document.createElement("div");
            wrapper.className = "wrapper";
@@ -45,45 +50,57 @@
                wrapper.className = "bright light small";
                return wrapper;
            }
-           if (this.config.header != "") {
-               var header = document.createElement("header");
-               header.className = "header";
-               header.innerHTML = this.config.header;
-               wrapper.appendChild(header);
-           }
+           
 
            var top = document.createElement("div");
-           top.classList.add("content");
+           top.classList.add("post-container");
+           
+           var title = document.createElement("div");
+           title.classList.add("post-title");
+           if (cocktails.strGlass === 'vote' || " ") {
+               title.innerHTML = cocktails.strDrink + "<br> ";
+           } else {
+               title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass +"<br>";
+           }
+           top.appendChild(title);
 
            var drinkLogo = document.createElement("div");
            var drinkIcon = document.createElement("img");
            drinkIcon.src = cocktails.strDrinkThumb;
-           drinkIcon.classList.add("imgDes");
+           drinkIcon.classList.add("post-thumb");
            drinkLogo.appendChild(drinkIcon);
            top.appendChild(drinkLogo);
 
-           var title = document.createElement("h3");
-           title.classList.add("small");
-           if (cocktails.strGlass === 'vote' || " ") {
-               title.innerHTML = cocktails.strDrink + " ";
-           } else {
-               title.innerHTML = cocktails.strDrink + "  ~  " + cocktails.strGlass;
-           }
-           top.appendChild(title);
-
-
            var des = document.createElement("p");
-           des.classList.add("xsmall", "bright");
-           des.innerHTML = cocktails.strIngredient1 + " " + cocktails.strMeasure1 + " - " + cocktails.strIngredient2 + " " + cocktails.strMeasure2 + " - " + cocktails.strIngredient3 + " " + cocktails.strMeasure3 + " - " + cocktails.strIngredient4 + " " + cocktails.strMeasure4 + "  " + cocktails.strIngredient5 + "  " + cocktails.strMeasure5 + "  " + cocktails.strInstructions;
+           des.classList.add("xsmall", "bright","post-content");
+           des.innerHTML = cocktails.strIngredient1 + " " + cocktails.strMeasure1 + " <br> " + cocktails.strIngredient2 + " " + cocktails.strMeasure2 + " <br> " + cocktails.strIngredient3 + " " + cocktails.strMeasure3 + " <br> " + cocktails.strIngredient4 + " " + cocktails.strMeasure4 + " <br> " + cocktails.strIngredient5 + "  " + cocktails.strMeasure5 + " <br> ";
            top.appendChild(des);
+           
+           var str = document.createElement("p");
+           str.classList.add("xsmall", "bright","inst");
+           str.innerHTML = "<br>"+cocktails.strInstructions;
+           top.appendChild(str); 
+           
 
            wrapper.appendChild(top);
+       
+           
            return wrapper;
 
        },
+       
+     showObject:  function (obj) {
+  var result = "";
+  for (var strIngredient in this.cocktails) {
+    if( this.cocktails.hasOwnProperty(strIngredient) ) {
+      result += strIngredient + " , " + this.cocktails[strIngredient] + "\n";
+    } 
+  }              
+  return result;
+},
 
        processCocktails: function(data) {
-       //  console.log(data); // for checking
+      console.log(data); // for checking
            this.today = data.Today;
            this.cocktails = data;
            this.loaded = true;
