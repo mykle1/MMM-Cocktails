@@ -88,6 +88,19 @@ var cocktails = this.cocktails;
            return wrapper;
 
        },
+	   
+	   
+	   notificationReceived: function(notification, payload) {
+        if (notification === 'HIDE_COCKTAILS') {
+            this.hide(1000);
+            this.updateDom(300);
+        }  else if (notification === 'SHOW_COCKTAILS') {
+            this.show(1000);
+            this.updateDom(300);
+        }
+            
+    },
+	   
        
      showObject:  function (obj) {
   var result = "";
