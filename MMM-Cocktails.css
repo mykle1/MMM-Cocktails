@@ -9,7 +9,7 @@
     height: 30%;
     margin-top: 10px;            
     margin-left: 10px;
-    margin-right: 2px;
+    margin-right: 12px;
 }
 .MMM-Cocktails .post-thumb img {
     display: block;
@@ -21,8 +21,9 @@
 .MMM-Cocktails .post-title {
     font-weight: bold;
     font-size: 75%;
+	color: yellow;
     padding: 9px;
-    background: #f2f2f2
+    background: black: /* #f2f2f2; */
 } 
 .MMM-Cocktails .inst {
 	margin-left: 5px;
