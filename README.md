@@ -1,6 +1,8 @@
 # MMM-Cocktails
 A MagicMirror module that teaches you how to make all kinds of mixed drinks.
 
+Works by default with Hello-Lucy voice enhancement!
+
 ## Examples
 
 maxWidth: 400px, colored title text. Good for left and right regions.
