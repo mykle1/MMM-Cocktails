@@ -20,14 +20,10 @@
        getStyles: function() {
            return ["MMM-Cocktails.css"];
        },
-       getScripts: function(){
-	   	   return ["require.js"];
-	   },
-
+	   
        // Define start sequence.
        start: function() {
            Log.info("Starting module: " + this.name);
-           const config = require(['help.js']);
            this.today = "";
            this.Cocktails = [];
            this.url = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -89,7 +85,7 @@ var cocktails = this.cocktails;
 
        },
 	   
-	   
+/////////// For use with Hello-Lucy voice enhancement /////////////////////	   
 	   notificationReceived: function(notification, payload) {
         if (notification === 'HIDE_COCKTAILS') {
             this.hide(1000);
@@ -100,7 +96,7 @@ var cocktails = this.cocktails;
         }
             
     },
-	   
+////////////////////////////////////////////////////////////////////////////	   
        
      showObject:  function (obj) {
   var result = "";
