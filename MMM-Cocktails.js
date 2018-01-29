@@ -109,7 +109,7 @@ var cocktails = this.cocktails;
 },
 
        processCocktails: function(data) {
-      console.log(data); // for checking
+  //    console.log(data); // for checking
            this.today = data.Today;
            this.cocktails = data;
            this.loaded = true;
