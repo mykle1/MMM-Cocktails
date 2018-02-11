@@ -62,7 +62,7 @@ var cocktails = this.cocktails;
 
            var drinkLogo = document.createElement("div");
            var drinkIcon = document.createElement("img");
-           drinkIcon.src = cocktails.strDrinkThumb;
+           drinkIcon.src = "http://"+cocktails.strDrinkThumb;
            drinkIcon.classList.add("post-thumb");
            drinkLogo.appendChild(drinkIcon);
            top.appendChild(drinkLogo);
