@@ -62,7 +62,8 @@ var cocktails = this.cocktails;
 
            var drinkLogo = document.createElement("div");
            var drinkIcon = document.createElement("img");
-           drinkIcon.src = "http://"+cocktails.strDrinkThumb;
+//         drinkIcon.src = "http://"+cocktails.strDrinkThumb; // original source
+           drinkIcon.src = cocktails.strDrinkThumb; // fixed 6/13/18 for @hykgoml
            drinkIcon.classList.add("post-thumb");
            drinkLogo.appendChild(drinkIcon);
            top.appendChild(drinkLogo);
@@ -110,7 +111,7 @@ var cocktails = this.cocktails;
 
        processCocktails: function(data) {
   //    console.log(data); // for checking
-           this.today = data.Today;
+   //        this.today = data.Today;
            this.cocktails = data;
            this.loaded = true;
        },
